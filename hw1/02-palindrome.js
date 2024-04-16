@@ -8,10 +8,9 @@ function checkPalindrome(number) {
 }
 
 function checkNum(number) {
-  // FIXME: Not updating green text
   const answer = document.querySelector(".result");
+  answer.classList.remove("text-success", "text-danger");
 
-  // TODO: Not working with non numbers
   if (isNaN(number) || number < 0) {
     answer.textContent = "Please enter a positive number!";
     answer.classList.add("text-danger");
