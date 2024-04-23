@@ -2,16 +2,21 @@
 document.getElementById("searchButton").addEventListener("click", handleClick);
 
 // Card class
-function createCard(characters) {
+function createCard(character, search) {
   const cardCol = document.createElement("div");
   cardCol.className = "col-4 mb-4";
   const card = document.createElement("div");
   card.className = "card p-4";
+  // Handle highlighting
+  const highlight = character.name.replace(
+    new RegExp(search, "gi"),
+    (match) => `<mark>${match}</mark>`
+  );
   // Use variable directly
   card.innerHTML = `
   <div class="card-body">
-    <h2 class="card-title">${characters.name}</h2>
-    <p class="card-text">Birth Year: ${characters.birth_year}</p>
+    <h2 class="card-title">${highlight}</h2>
+    <p class="card-text">Birth Year: ${character.birth_year}</p>
   </div>
   `;
   cardCol.appendChild(card);
@@ -31,12 +36,16 @@ function handleClick() {
   result.innerHTML = "";
 
   const searchResult = toSearch(name);
-  if (searchResult.length === 0) {
+
+  if (searchResult.length === 0 || name === "") {
+    // Return error
     result.textContent = "No characters found";
+    result.style.color = "red";
   } else {
     // New card for each item in array
+    result.style.color = "";
     searchResult.forEach((character) =>
-      result.appendChild(createCard(character))
+      result.appendChild(createCard(character, name))
     );
   }
 }
