@@ -7,14 +7,139 @@
     <title>05 - Form</title>
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" />
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+    />
+    <!-- To be able to use js for modal-->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    ></script>
     <script defer src="05-form.js"></script>
   </head>
-  <body>
+  <body class="bg-dark">
     <main>
-      <form>
-        <h1>Exercise 05 - Form</h1>
-      </form>
+      <div class="container">
+        <div class="row mt-4 justify-content-center">
+          <div class="col-8 p-3 fw-bold bg-light">
+            <form id="form">
+              <h1 class="text-center mb-5">Exercise 05 - Form</h1>
+              <div class="mb-3">
+                <label for="name" class="form-label">Full Name:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  name="Full Name"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email:</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  name="Email"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="select">Registration Status:</label>
+                <select
+                  class="form-select"
+                  id="select"
+                  name="Registration Status"
+                >
+                  <option selected>Choose an Option</option>
+                  <option>Open</option>
+                  <option>Closed</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <p>Have you taken any of the following courses?</p>
+                <div class="form-check fw-normal">
+                  <input
+                    type="checkbox"
+                    class="form-check-input"
+                    id="PL"
+                    name="Programming Languages"
+                  />
+                  <label class="form-check-label" for="PL"
+                    >Programming Languages</label
+                  >
+                </div>
+                <div class="form-check fw-normal">
+                  <input
+                    type="checkbox"
+                    class="form-check-input"
+                    id="OS"
+                    name="Operating Systems"
+                  />
+                  <label class="form-check-label" for="OS"
+                    >Operating Systems</label
+                  >
+                </div>
+                <div class="form-check fw-normal">
+                  <input
+                    type="checkbox"
+                    class="form-check-input"
+                    id="WD"
+                    name="Full Stack"
+                  />
+                  <label class="form-check-label" for="WD"
+                    >Full Stack Web Development</label
+                  >
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label" for="text">Anything else?</label>
+                <textarea
+                  class="form-control"
+                  id="text"
+                  name="Message"
+                  rows="3"
+                ></textarea>
+              </div>
+              <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary w-50 me-1">
+                  Submit
+                </button>
+                <button type="reset" class="btn btn-secondary w-50 ms-1">
+                  Reset
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="modal" id="show" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Modal title</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body" id="form-content">
+              <!-- Bootstrap 5 latest ex-->
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="button" class="btn btn-primary">
+                Save changes
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
   </body>
 </html>
