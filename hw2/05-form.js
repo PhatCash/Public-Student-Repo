@@ -3,17 +3,16 @@ document.getElementById("form").addEventListener("submit", handleInput);
 const modal = document.getElementById("form-content");
 const form = document.getElementById("form");
 
-// Returns key pair values
+// Returns key : 'name' attribute
 function getData(form) {
   return new FormData(form);
 }
 
-// Loop through and append to modal, create a p element
+// Loop through and append to modal, create a div element
 function addData(data) {
-  console.log(data);
   modal.innerHTML = "";
 
-  for (let [key, value] of data.entries()) {
+  for (const [key, value] of data.entries()) {
     const newData = document.createElement("div");
     newData.textContent = `For ${key}, you have entered: ${value}`;
     modal.appendChild(newData);

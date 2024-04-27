@@ -12,7 +12,7 @@ function highlightWord(search) {
     // Handle highlighting
     const highlight = originalText.replace(
       new RegExp(search, "gi"),
-      (match) => `<mark>${match}</mark>`
+      (match) => `<mark class="bg-warning">${match}</mark>`
     );
     toDisplay.innerHTML = highlight;
   }

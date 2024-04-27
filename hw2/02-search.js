@@ -7,18 +7,27 @@ function createCard(character, search) {
   cardCol.className = "col-4 mb-4";
   const card = document.createElement("div");
   card.className = "card p-4";
+
+  // Create each element individually
+  const cardBody = document.createElement("div");
+  cardBody.className = "card-body";
+
   // Handle highlighting
   const highlight = character.name.replace(
     new RegExp(search, "gi"),
-    (match) => `<mark>${match}</mark>`
+    (match) => `<mark class="bg-warning">${match}</mark>`
   );
-  // Use variable directly
-  card.innerHTML = `
-  <div class="card-body">
-    <h2 class="card-title">${highlight}</h2>
-    <p class="card-text">Birth Year: ${character.birth_year}</p>
-  </div>
-  `;
+
+  const cardTitle = document.createElement("h2");
+  cardTitle.className = "card-title";
+  cardTitle.innerHTML = `${highlight}`;
+  const cardPar = document.createElement("p");
+  cardPar.className = "card-text";
+  cardPar.innerText = `Birth Year: ${character.birth_year}`;
+
+  cardBody.appendChild(cardTitle);
+  cardBody.appendChild(cardPar);
+  card.appendChild(cardBody);
   cardCol.appendChild(card);
 
   return cardCol;
