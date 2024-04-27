@@ -4,7 +4,7 @@ document.getElementById("searchButton").addEventListener("click", handleClick);
 // Card class
 function createCard(character, search) {
   const cardCol = document.createElement("div");
-  cardCol.className = "col-4 mb-4";
+  cardCol.className = "col-4 bg-light mb-4";
   const card = document.createElement("div");
   card.className = "card p-4";
 
@@ -48,8 +48,13 @@ function handleClick() {
 
   if (searchResult.length === 0 || name === "") {
     // Return error
-    result.textContent = "No characters found";
-    result.style.color = "red";
+    const cardCol = document.createElement("div");
+    cardCol.className = "col-4 bg-light mb-4 p-2";
+    const errorTitle = document.createElement("h2");
+    errorTitle.textContent = "No characters found";
+    errorTitle.style.color = "red";
+    cardCol.appendChild(errorTitle);
+    result.appendChild(cardCol);
   } else {
     // New card for each item in array
     result.style.color = "";
